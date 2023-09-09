@@ -1,6 +1,40 @@
 package co.edu.unbosque.model.persistence;
 
-public class AnimalDAO {
-	
+import co.edu.unbosque.model.AnimalDTO;
+import co.edu.unbosque.util.DequeList;
 
+public class AnimalDAO {
+	private DequeList<AnimalDTO> colaAnimales;
+	
+	public AnimalDAO() {
+		colaAnimales = new DequeList<AnimalDTO>();
+	}
+
+	public AnimalDAO(DequeList<AnimalDTO> animales) {
+		super();
+		this.colaAnimales = animales;
+	}
+
+	public DequeList<AnimalDTO> getAnimales() {
+		return colaAnimales;
+	}
+
+	public void setAnimales(DequeList<AnimalDTO> animales) {
+		this.colaAnimales = animales;
+	}
+	
+	public void agregarAnimal(int idDueño, String nombre, String raza) {
+		colaAnimales.insertFirst(new AnimalDTO(idDueño, nombre, raza));
+	}
+	
+	public String atenderAnimal(boolean seraAtendido) {
+		String respuesta = "";
+		if (seraAtendido = true) {
+			respuesta = "Se atendio al animal: \n " + colaAnimales.getHead().getInfo() + ".";
+			colaAnimales.removeFirst();		
+		} else {
+			respuesta = "No se atendio.";		
+		}
+		return respuesta;	
+	}
 }
