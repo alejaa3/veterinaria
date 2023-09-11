@@ -1,6 +1,12 @@
 package co.edu.unbosque.model;
+import java.io.Serializable;
 
-public class AnimalDTO {
+public class AnimalDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5198527779387933322L;
+
 	private int id;
 	private String nombre;
 	private String raza;
