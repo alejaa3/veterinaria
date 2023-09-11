@@ -42,6 +42,9 @@ public class AnimalDAO {
 		String respuesta = "";
 		if (seraAtendido == true) {
 			respuesta = "Se atendio al animal: \n " + colaAnimales.getHead().getInfo() + ".";
+			if (respuesta==null){
+			respuesta="";
+			}
 			animalesAtendidos.insertLast(colaAnimales.getHead().getInfo());
 			colaAnimales.removeFirst();
 		
